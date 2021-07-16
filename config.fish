@@ -3,10 +3,12 @@ set PATH ~/.npm-global/bin $PATH
 
 set -Ux PATH ~/flutter/bin/ $PATH
 
+#nvm use --lts
+
 # Hide welcome message
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -x MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
 # Set settings for https://github.com/franciscolourenco/done
 set -U __done_min_cmd_duration 10000
@@ -99,7 +101,7 @@ alias lt='exa -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
 # Replace some more things with better alternatives
-alias cat='bat --style header --style rules --style snip --style changes --style header'
+alias cat='batcat --style header --style rules --style snip --style changes --style header'
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru --bottomup'
 
 # Common use
@@ -158,8 +160,8 @@ if type "wal" >> /dev/null 2>&1
 end
 
 
-## Run paleofetch if session is interactive
-if status --is-interactive
-   paleofetch
-end
+## Run neofetch if session is interactive
+#if status --is-interactive
+#   neofetch
+#end
 
